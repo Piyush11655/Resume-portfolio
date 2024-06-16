@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div id="home" class="banner-area section-padding">
+        <div class="bg-overlay black"></div>
+        <div class="containter">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="welcome-text">
+                      <div class="name-area wow fadeInDown" data-wow-delay="0.2s" style="text-transform: lowercase;">Hi, I'm Piyush Agrawal</div>
+                        <div class="des-area fadeInDown" data-wow-delay="0.4s" >"Transforming Vision into Reality with Code"
+                        </div>
+                        <a href="#about" class="my-btn-1 wow fadeInDown" data-wow-delay="0.6s">Learn more</a>
+                        <a href="#contact" class="my-btn-2 wow fadeInDown" data-wow-delay="0.8s">Get in touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#    About section#}
+    <div id="about" class="about-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-7 order-md-first wow fadeInLeft" data-wow-delay="0.2s">
+                    <div class="about-left">
+                        <h2 class="section-title">About Me</h2>
+                        <div class="line"></div>
+                        <h6>{{ about.short_description }}</h6>
+                        <!-- <p>{{ about.description }}</p> -->
+                        <a href="{{ about.resume.url }}" download>Download Resume &nbsp;<i class="fa fa-download"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-5 order-md-last wow fadeInDown" data-wow-delay="0.6s">
+                    <div class="profile">
+                        <img src="../media/about/piyush_1.JPG" alt="Profile image" class="img-fluid" style="max-width: 100%; height: auto;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+      
+
+    {#    Services Section#}
+    <div id="services" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header text-center">
+                        <h2>Skills</h2>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for service in services %}
+
+                    <div class="col-md-2 col-sm-4">
+                        <div class="single-service wow fadeInDown" data-wow-delay="0.2s">
+                          
+                        
+                          <img src="{{ service.icon.url }}" alt="work image" style="width: 20%; height: 20%;">
+    
+                    
+                        
+
+
+                            <h2>{{ service.name }}</h2>
+                          <!-- <p>{{ service.description }}</p> -->
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {#    Recent Works Section#}
+    <div id="portfolio" class="portfolio-area section-padding">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header">
+                        <h2>My Recent Works</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for work in works %}
+                    <div class="col-md-4 col-sm-4 col-xs-12 no-padding">
+                        <div class="gallery-items " style="padding-left: 150px;">
+                        <!---  <a class="view img" href="{{ work.link }}" target="_blank">
+                                <img src="{{ work.image.url }}" alt="work image">
+                            </a>-->
+                            <h3 style="padding-left: 20px; margin-bottom: 50px;">{{ work.title }}</h2>
+                                
+                                    <a href="{{ work.link }}" target="_blank"><img src="{{ work.image.url }}" alt="work image" style="width: 100%; height: 100%;">
+                                    </a>
+
+                                <div class="gallery-text">
+                                    <h2>
+                                        {% if work.link %}
+
+                                            <a href="{{ work.link }}" target="_blank"></a>
+                                        {% else %}
+                                            {{ work.title }}
+                                        {% endif %}
+                                    </h2>
+                                </div>
+                                <br>
+                                <div style="margin-top: 50px; display: inline-block; font-family: 'Arial', sans-serif;">
+                                    <img src="../media/about/github.png" alt="GitHub logo" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 10px;">
+                                    <span style="vertical-align: middle;">GitHub:</span>
+                                    <a href="https://github.com/Piyush11655" style="color: #007bff; text-decoration: none; font-weight: bold; margin-left: 5px; vertical-align: middle;">
+                                        https://github.com/Piyush11655
+                                    </a>
+                                </div>
+                                
+                                
+                            <div class="gallery-text">
+                                <h2>{{ work.title }}</h2>
+                                
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {#    Contact section#}
+
+    
+
+    <div id="contact" class="contact-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header text-center">
+                        <h2>Contact Me</h2>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 box-contact-form">
+                    <div style="margin-top: 30px; font-family: 'Arial', sans-serif;">
+                        <img src="../media/about/gmail.png" alt="work image" style="width: 30px; height: 30px; margin-right: 10px;">
+                        <span style="vertical-align: middle;">Gmail:</span>
+                        <a href="mailto:Mittalpiyush112011@gmail.com" style="color: #007bff; text-decoration: none; font-weight: bold; margin-left: 5px;">Mittalpiyush112011@gmail.com</a>
+                    </div>
+                    
+                    <div style="margin-top: 30px; margin-bottom: 30px; font-family: 'Arial', sans-serif;">
+                        <img src="../media/about/Linkedin.png" alt="work image" style="width: 30px; height: 30px; margin-right: 10px;">
+                        <span style="vertical-align: middle;">LinkedIn:</span>
+                        <a href="https://www.linkedin.com/in/piyush-agrawal-164502241" style="color: #007bff; text-decoration: none; font-weight: bold; margin-left: 5px;">https://www.linkedin.com/in/piyush-agrawal-164502241</a>
+                    </div>
+                    
+                    <form id="contact-form" method="post" action="/">
+
+                        <div class="messages"></div>
+                    
+                        <div class="controls">
+                    
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group wow fadeInDown" data-wow-delay="0.2s">
+                                        <input id="form_name" type="text" name="name" class="form-control"
+                                               placeholder="Enter your full name *" required="required"
+                                               data-error="Fullname is required.">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group wow fadeInDown" data-wow-delay="0.4s">
+                                        <input id="form_email" type="email" name="email" class="form-control"
+                                               placeholder="Enter your email *" required="required"
+                                               data-error="Valid email is required.">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group wow fadeInUp" data-wow-delay="0.6s">
+                                        <textarea id="form_message" name="message" class="form-control"
+                                                  placeholder="Your Message *" rows="4" required="required"
+                                                  data-error="Leave a message for me"></textarea>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn btn-send" value="" type="submit" onclick="submitForm()">Send message</button>
+                                    <div id="thankYouMessage" style="display: none; margin-top: 10px;">Thank you! Your message has been sent.</div>
+                                    <div id="fillInfoMessage" style="display: none; margin-top: 10px; color: red;">Please fill in all the information.</div>
+                                </div>
+                            </div>
+                    
+                        </div>
+                    
+                    </form>
+                    
+                    <script>
+                        function submitForm() {
+                            var name = document.getElementById('form_name').value;
+                            var email = document.getElementById('form_email').value;
+                            var message = document.getElementById('form_message').value;
+                    
+                            if (name && email && message) {
+                                document.getElementById("thankYouMessage").style.display = "block";
+                                document.getElementById("fillInfoMessage").style.display = "none";
+                            } else {
+                                document.getElementById("thankYouMessage").style.display = "none";
+                                document.getElementById("fillInfoMessage").style.display = "block";
+                            }
+                        }
+                    </script>
+                    
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
